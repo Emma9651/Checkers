@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checker</title>
+    <link rel="icon" href="./Images/Potto-logo-only_iebxw7.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+    <div class="container-fluid col-lg-3 col-8 col-md-7 shadow rounded-3 ps-4 pe-4 mt-5">
+        <h2 class="text-center text-info pt-3">Result Checker</h2>
+        <input type="number" class="form-control my-5 fs-md-2" placeholder="Enter Your Score" id="score" value="" autofocus>
+        <button class="btn btn-secondary w-100 fw-bold fs-5" onclick="gradeChecker()">Check</button>
+        <div class="text-center fw-bold p-3 fs-3" id="showResults">Result will show here!</div>
+    </div>
+
+    <div class="area">
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <script>
+
+        var emptySong = new Audio('Audio/error-call-to-attention-129258.mp3')
+        var failSong = new Audio('Audio/laughing-man-117725.mp3')
+        var passSong = new Audio('Audio/looping-sad-ambient-12-206123.mp3')
+        var averageSong = new Audio(' Audio/oh-well-45435.mp3')
+        var veryGood = new Audio("Audio/applause.mp3")
+        var excellentSong = new Audio('Audio/applause-cheer.mp3')
+        var exceptionalSong = new Audio("Audio/crowd-cheering.mp3")
+        var songInvalid = new Audio("Audio/sound-effect-system-error-sound-117733.mp3")
+        // console.log(score);
+
+        function gradeChecker() {
+            if (score.value == "") {
+                emptySong.play()
+                showResults.innerHTML = "Invalid ❌❌"
+            }else{
+               var userScore = Number(score.value)
+               if (userScore >=0 && userScore < 40) {
+                showResults.innerHTML = "F - fail 😭"
+                failSong.play()
+               }
+               
+               if (userScore >=40 && userScore < 50) {
+                showResults.innerHTML = "D-Pass 😪"
+                passSong.play()
+               }
+               
+               if (userScore >=50 && userScore < 60) {
+                showResults.innerHTML = "C-Average 😊"
+                averageSong.play()
+               }
+               
+               if (userScore >=60 && userScore < 70) {
+                showResults.innerHTML = "B V-Good 🤩"
+                veryGood.play()
+               }
+               if (userScore >=70 && userScore < 80) {
+                showResults.innerHTML = "A - Excellent 😍"
+                excellentSong.play()
+               }
+               if (userScore >=80 && userScore <= 100) {
+                   showResults.innerHTML = "A+- Exceptional 🤓"
+                   exceptionalSong.play()
+                }if (userScore > 100 ) {
+                   showResults.innerHTML = "Invalid ❌❌"
+                   songInvalid.play(    )
+               }
+            }
+        }
+        
+    </script>
+    
+</body>
+
+</html>
