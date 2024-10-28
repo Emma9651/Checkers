@@ -83,8 +83,11 @@
                    showResults.innerHTML = "A+- Exceptional 🤓"
                    exceptionalSong.play()
                 }if (userScore > 100 ) {
-                   showResults.innerHTML = "Invalid ❌❌"
+                   showResults.innerHTML = "Enter A Valid Score ❌❌"
                    songInvalid.play(    )
+               }else{
+                showResults.innerHTML = "Unrecognized !!!"
+                songInvalid.play( )
                }
             }
         }
