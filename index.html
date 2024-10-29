@@ -49,7 +49,7 @@
         var excellentSong = new Audio('Audio/applause-cheer.mp3')
         var exceptionalSong = new Audio("Audio/crowd-cheering.mp3")
         var songInvalid = new Audio("Audio/sound-effect-system-error-sound-117733.mp3")
-        // console.log(score);
+        
 
         function gradeChecker() {
             if (score.value == "") {
@@ -83,11 +83,8 @@
                 if (userScore >= 80 && userScore <= 100) {
                     showResults.innerHTML = "A+- Exceptional 🤓"
                     exceptionalSong.play()
-                } if (userScore > 100) {
+                } if (userScore < 0 && userScore > 100) {
                     showResults.innerHTML = "Enter A Valid Score ❌❌"
-                    songInvalid.play()
-                } else {
-                    showResults.innerHTML = "Unrecognized !!!"
                     songInvalid.play()
                 }
             }
