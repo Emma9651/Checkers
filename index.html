@@ -14,7 +14,6 @@
 
 <body>
 
-
     <div class="container-fluid col-lg-3 col-8 col-md-7 shadow rounded-3 ps-4 pe-4 mt-5">
         <h2 class="text-center text-info pt-3">Result Checker</h2>
         <input type="number" class="form-control my-5 fs-md-2" placeholder="Enter Your Score" id="score" value=""
@@ -40,7 +39,6 @@
     </div>
 
     <script>
-
         var emptySong = new Audio('Audio/error-call-to-attention-129258.mp3')
         var failSong = new Audio('Audio/laughing-man-117725.mp3')
         var passSong = new Audio('Audio/looping-sad-ambient-12-206123.mp3')
@@ -49,7 +47,6 @@
         var excellentSong = new Audio('Audio/applause-cheer.mp3')
         var exceptionalSong = new Audio("Audio/crowd-cheering.mp3")
         var songInvalid = new Audio("Audio/sound-effect-system-error-sound-117733.mp3")
-        
 
         function gradeChecker() {
             if (score.value == "") {
@@ -62,29 +59,33 @@
                     failSong.play()
                 }
 
-                if (userScore >= 40 && userScore < 50) {
+                else if (userScore >= 40 && userScore < 50) {
                     showResults.innerHTML = "D-Pass 😪"
                     passSong.play()
                 }
 
-                if (userScore >= 50 && userScore < 60) {
+                else if (userScore >= 50 && userScore < 60) {
                     showResults.innerHTML = "C-Average 😊"
                     averageSong.play()
                 }
 
-                if (userScore >= 60 && userScore < 70) {
+                else if (userScore >= 60 && userScore < 70) {
                     showResults.innerHTML = "B V-Good 🤩"
                     veryGood.play()
                 }
-                if (userScore >= 70 && userScore < 80) {
+                else if (userScore >= 70 && userScore < 80) {
                     showResults.innerHTML = "A - Excellent 😍"
                     excellentSong.play()
                 }
-                if (userScore >= 80 && userScore <= 100) {
+                else if (userScore >= 80 && userScore <= 100) {
                     showResults.innerHTML = "A+- Exceptional 🤓"
                     exceptionalSong.play()
-                } if (userScore < 0 && userScore > 100) {
+                }
+                else if (userScore > 100) {
                     showResults.innerHTML = "Enter A Valid Score ❌❌"
+                    songInvalid.play()
+                } else {
+                    showResults.innerHTML = "Unrelated Input!!"
                     songInvalid.play()
                 }
             }
